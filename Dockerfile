@@ -1,6 +1,8 @@
 FROM google/cloud-sdk:481.0.0-slim
 
 ENV PATH="/opt/venv/bin:$PATH"
+ENV GRADIO_SERVER_NAME="0.0.0.0"
+EXPOSE 7860
 
 WORKDIR /app
 
@@ -19,4 +21,4 @@ COPY . .
 
 CMD . /opt/venv/bin/activate && \
     ./init_db.sh && \
-    litestream replicate --config litestream.yml -exec "gradio main.py"
+    litestream replicate --config litestream.yml -exec "python3 main.py"

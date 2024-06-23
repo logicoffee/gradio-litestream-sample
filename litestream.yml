@@ -1,4 +1,4 @@
 dbs:
 - path: data/todo.db
   replicas:
-  - url: gcs://gradio-litestream-sample/todo.db
+  - url: gcs://your-bucket-name/todo.db
