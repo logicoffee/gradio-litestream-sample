@@ -1,0 +1,9 @@
+services:
+  app:
+    build:
+      context: .
+    volumes:
+    - .:/app
+    - ~/.config/gcloud:/root/.config/gcloud
+    ports:
+    - "7860:7860"
