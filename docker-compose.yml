@@ -1,0 +1,15 @@
+services:
+  app:
+    build:
+      context: .
+    command: |
+      bash -c '
+        . /opt/venv/bin/activate &&
+        ./init_db.sh &&
+        litestream replicate --config litestream.yml -exec "gradio main.py"
+      '
+    volumes:
+    - .:/app
+    - ~/.config/gcloud:/root/.config/gcloud
+    ports:
+    - "7860:7860"

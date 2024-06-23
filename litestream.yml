@@ -1,0 +1,4 @@
+dbs:
+- path: data/todo.db
+  replicas:
+  - url: gcs://your-bucket-name/todo.db
